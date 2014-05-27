@@ -43,9 +43,11 @@ class AddressBook(wx.Frame):
         self.btn=wx.Button(self.panel,201,"save",pos=(170,570),size=(70,30))
         self.btn1=wx.Button(self.panel,202,"clear all",pos=(80,570),size=(70,30))
         self.btn2=wx.Button(self.panel,203,"retrive",pos=(260,570),size=(70,30))
+        
         self.Bind(wx.EVT_BUTTON,self.retrive,id=203)
         self.Bind(wx.EVT_BUTTON,self.clear,id=202)
         self.Bind(wx.EVT_BUTTON,self.save,id=201)
+       
         self.filename="AddressBookDataBase"
         if not os.path.exists(self.filename):
             os.makedirs('AddressBookDataBase')
@@ -74,12 +76,12 @@ class AddressBook(wx.Frame):
             box=wx.TextEntryDialog(None,"Enter AddressBookName To Save","Title","default text")
             if box.ShowModal()==wx.ID_OK:
                 self.addressbookname=box.GetValue()
-                self.dial = wx.MessageDialog(None, 'saved successfully', 'Info', wx.OK)
-                self.dial.ShowModal()
+                #self.dial = wx.MessageDialog(None, 'saved successfully', 'Info', wx.OK)
+                #self.dial.ShowModal()
                 if not os.path.exists('AddressBookDataBase/'+self.addressbookname+'.txt'):
                     
                     
-                    self.filename = open('AddressBookDataBase/'+self.addressbookname+'.txt','a')
+                    self.filename = open('AddressBookDataBase/'+self.addressbookname+'.txt','w')
                     self.filename.write(self.firstname+'\n')
                     self.filename.write(self.secondname+'\n')
                     self.filename.write(self.addressline1+'\n')
@@ -98,6 +100,8 @@ class AddressBook(wx.Frame):
                     self.filename=open('AddressBookDataBase/filenames.txt','a')
                     self.filename.write(self.addressbookname+'\n')
                     self.filename.close()
+                    self.dial = wx.MessageDialog(None, 'saved successfully', 'Info', wx.OK)
+                    self.dial.ShowModal()
 
                     
                 else:
@@ -129,8 +133,11 @@ class AddressBook(wx.Frame):
         self.email3.Clear()
         self.email4.Clear()
         self.notes1.Clear()
+        
 
     def retrive(self,event):
+
+        
         self.fo=open('AddressBookDataBase/filenames.txt','r')
         f=self.fo.readlines()
         self.fo.close()
@@ -141,21 +148,89 @@ class AddressBook(wx.Frame):
             self.app=self.apples[:-1]
             self.filenam = open('AddressBookDataBase/'+self.app+'.txt','r')
             line=self.filenam.readlines()
-            self.firstname1.SetValue(line[0])
-            self.secondname1.SetValue(line[1])
-            self.addressline11.SetValue(line[2])
-            self.addressline21.SetValue(line[3])
-            self.addressline31.SetValue(line[4])
+            line1=line[0]
+            line2=line[1]
+            line3=line[2]
+            line4=line[3]
+            line5=line[4]
+            line6=line[5]
+            line7=line[6]
+            line8=line[7]
+            line9=line[8]
+            line10=line[9]
+            line11=line[10]
+            line12=line[11]
+            line13=line[12]
+            line14=line[13]
+            self.firstname1.SetValue(line1[:-1])
+            self.secondname1.SetValue(line2[:-1])
+            self.addressline11.SetValue(line3[:-1])
+            self.addressline21.SetValue(line4[:-1])
+            self.addressline31.SetValue(line5[:-1])
         
-            self.city1.SetValue(line[5])
-            self.state1.SetValue(line[6])
-            self.zip1.SetValue(line[7])
-            self.homephe1.SetValue(line[8])
-            self.workphe1.SetValue(line[9])
-            self.mobile1.SetValue(line[10])
-            self.email3.SetValue(line[11])
-            self.email4.SetValue(line[12])
-            self.notes1.SetValue(line[13])
+            self.city1.SetValue(line6[:-1])
+            self.state1.SetValue(line7[:-1])
+            self.zip1.SetValue(line8[:-1])
+            self.homephe1.SetValue(line9[:-1])
+            self.workphe1.SetValue(line10[:-1])
+            self.mobile1.SetValue(line11[:-1])
+            self.email3.SetValue(line12[:-1])
+            self.email4.SetValue(line13[:-1])
+            self.notes1.SetValue(line14[:-1])
+            self.btn4=wx.Button(self.panel,205,"update",pos=(350,570),size=(70,30))
+            self.Bind(wx.EVT_BUTTON,self.update,id=205)
+            self.note=wx.StaticText(self.panel,-1,"Note: update button is used to update the existing address book\n"
+                                "or to modify the existing address book",pos=(10,610))
+
+    def update(self,event):
+
+        
+        self.firstname=self.firstname1.GetValue()
+        print self.firstname
+        self.secondname=self.secondname1.GetValue()
+        self.addressline1=self.addressline11.GetValue()
+        self.addressline2=self.addressline21.GetValue()
+        self.addressline3=self.addressline31.GetValue()
+        self.city=self.city1.GetValue()
+        self.state=self.state1.GetValue()
+        self.zip=self.zip1.GetValue()
+        self.homephe=self.homephe1.GetValue()
+        self.workphe=self.workphe1.GetValue()
+        self.mobile=self.mobile1.GetValue()
+        self.email=self.email3.GetValue()
+        self.email2=self.email4.GetValue()
+        self.notes=self.notes1.GetValue()
+
+     
+        self.updat = open('AddressBookDataBase/'+self.app+'.txt','w')
+        self.updat.write(self.firstname+'\n')
+        self.updat.write(self.secondname+'\n')
+        self.updat.write(self.addressline1+'\n')
+        self.updat.write(self.addressline2+'\n')
+        self.updat.write(self.addressline3+'\n')
+        self.updat.write(self.city+'\n')
+        self.updat.write(self.state+'\n')
+        self.updat.write(self.zip+'\n')
+        self.updat.write(self.homephe+'\n')
+        self.updat.write(self.workphe+'\n')
+        self.updat.write(self.mobile+'\n')
+        self.updat.write(self.email+'\n')
+        self.updat.write(self.email2+'\n')
+        self.updat.write(self.notes+'\n')
+        self.updat.close()
+        self.app=0
+        self.btn4.Destroy()
+        self.dial = wx.MessageDialog(None, 'updated', 'Info', wx.OK)
+        self.dial.ShowModal()
+
+        
+       
+        
+        
+
+        
+                    
+        
 
             
             
