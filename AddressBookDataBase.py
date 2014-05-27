@@ -5,7 +5,7 @@ class AddressBook(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self,None,-1,"Address Book",size=(500,700))
         self.panel=wx.Panel(self,-1)
-        self.SetBackgroundColour("#FFFF7A")
+        self.SetBackgroundColour("#95CAE4")
        
         self.title=wx.StaticText(self.panel,-1,"ADDRESS BOOK DATABASE",pos=(120,10))
         self.firstname=wx.StaticText(self.panel,-1,"FirstName",pos=(50,50))
@@ -179,8 +179,7 @@ class AddressBook(wx.Frame):
             self.notes1.SetValue(line14[:-1])
             self.btn4=wx.Button(self.panel,205,"update",pos=(350,570),size=(70,30))
             self.Bind(wx.EVT_BUTTON,self.update,id=205)
-            self.note=wx.StaticText(self.panel,-1,"Note: update button is used to update the existing address book\n"
-                                "or to modify the existing address book",pos=(10,610))
+            self.note=wx.StaticText(self.panel,-1,"Note: update button is used to modify the existing address book",pos=(10,610))
 
     def update(self,event):
 
