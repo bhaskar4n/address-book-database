@@ -4,6 +4,10 @@ address-book-database
 address book database in python
 
 ###### screen shots
+
+blue background:
+<img src = "https://raw.githubusercontent.com/bhaskar4n/address-book-database/master/address%20book/blue%20background.PNG"/>
+
 <img src = "https://raw.githubusercontent.com/bhaskar4n/address-book-database/master/address%20book/main.PNG"/>
 
 ###### save
