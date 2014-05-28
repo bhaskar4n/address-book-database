@@ -3,7 +3,7 @@ import os
 
 class AddressBook(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self,None,-1,"Address Book",size=(500,700))
+        wx.Frame.__init__(self,None,-1,"Address Book",size=(520,700))
         self.panel=wx.Panel(self,-1)
         self.SetBackgroundColour("#95CAE4")
        
@@ -42,7 +42,7 @@ class AddressBook(wx.Frame):
         self.notes1=wx.TextCtrl(self.panel,-1,"",pos=(130,440),size=(250,100),style=wx.TE_MULTILINE)
         self.btn=wx.Button(self.panel,201,"save",pos=(170,570),size=(70,30))
         self.btn1=wx.Button(self.panel,202,"clear all",pos=(80,570),size=(70,30))
-        self.btn2=wx.Button(self.panel,203,"retrive",pos=(260,570),size=(70,30))
+        self.btn2=wx.Button(self.panel,203,"retrieve",pos=(260,570),size=(70,30))
         
         self.Bind(wx.EVT_BUTTON,self.retrive,id=203)
         self.Bind(wx.EVT_BUTTON,self.clear,id=202)
