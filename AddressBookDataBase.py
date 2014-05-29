@@ -179,7 +179,7 @@ class AddressBook(wx.Frame):
             self.notes1.SetValue(line14[:-1])
             self.btn4=wx.Button(self.panel,205,"update",pos=(350,570),size=(70,30))
             self.Bind(wx.EVT_BUTTON,self.update,id=205)
-            self.note=wx.StaticText(self.panel,-1,"Note: update button is used to modify the existing address book",pos=(10,610))
+            self.note=wx.StaticText(self.panel,-1,"Note: After modify the existing address book HIT UPDATE button",pos=(10,610))
 
     def update(self,event):
 
