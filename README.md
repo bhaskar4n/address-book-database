@@ -3,6 +3,8 @@ address-book-database
 
 address book database in python
 
+req: python2.7 and wxpython
+
 ###### screen shots
 
 <img src = "https://raw.githubusercontent.com/bhaskar4n/address-book-database/master/address%20book/sky%20blue.PNG">
